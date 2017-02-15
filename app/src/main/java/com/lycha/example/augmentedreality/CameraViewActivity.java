@@ -39,8 +39,6 @@ public class CameraViewActivity extends Activity implements
     private double mMyLongitude = 0;
     private MyCurrentAzimuth myCurrentAzimuth;
     private MyCurrentLocation myCurrentLocation;
-    private SensorManager mSensorManager;
-    private Sensor mSensor;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -48,30 +46,21 @@ public class CameraViewActivity extends Activity implements
         setContentView(R.layout.activity_camera_view);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        initializeSensor();
+        //initializeSensor();
         setupListeners();
         setupLayout();
         setAugmentedRealityPoint();
 
     }
 
-    private void initializeSensor() {
-        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        if (mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER) != null) {
-            // Success!
-            mSensor=mSensorManager.getDefaultSensor(Sensor.TYPE_GEOMAGNETIC_ROTATION_VECTOR);
 
-        } else {
-            // Failure!
-        }
-    }
 
     private void setAugmentedRealityPoint() {
         mPoi = new AugmentedPOI(
                 "Hello World!",
                 "Showing a Random Person",
-                50.06169631,
-                19.93919566
+                19.113578,
+                72.913162
         );
     }
 
